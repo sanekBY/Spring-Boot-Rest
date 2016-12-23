@@ -29,10 +29,9 @@ public class VoterController {
 //        return voterService.save(voter);
 //    }
 
-    @RequestMapping("/index")
-    public Voter getVoter (@RequestParam(value = "id", defaultValue = "1") Integer id) {
+    @RequestMapping("/voter")
+    public void getVoter (@RequestParam(value = "id", defaultValue = "1") Integer id) {
         System.out.println(voterService.getVoter(1));
-        return voterService.getVoter(id);
     }
 
 
@@ -41,6 +40,7 @@ public class VoterController {
         return new Greeting(1,
                 String.format(name));
     }
+
 
 //    @RequestMapping("/voter")
 //    public Voter getVoter (@RequestParam(value = "id",required = false,
