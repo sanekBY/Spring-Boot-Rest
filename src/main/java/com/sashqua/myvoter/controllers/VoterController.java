@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
@@ -39,6 +41,13 @@ public class VoterController {
     public Greeting greeting(@RequestParam(value="name", defaultValue="World") String name) {
         return new Greeting(1,
                 String.format(name));
+    }
+
+    @RequestMapping("/api/voter-list")
+    public List<Voter> getListOfVoters() {
+        List<Voter> list = new ArrayList<>();
+        list = voterService.findAll();
+        return list;
     }
 
 

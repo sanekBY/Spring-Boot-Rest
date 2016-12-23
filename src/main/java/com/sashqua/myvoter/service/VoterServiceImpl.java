@@ -10,6 +10,8 @@ import org.springframework.validation.annotation.Validated;
 import javax.inject.Inject;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by sashqua on 22.12.16.
@@ -40,6 +42,14 @@ public class VoterServiceImpl implements VoterService {
     public Voter getVoter(Integer id) {
         Voter existing = repository.findOne(id);
         return existing;
+    }
+
+    @Override
+    @Transactional
+    public List<Voter> findAll() {
+        List<Voter>  voters= new ArrayList<>();
+        voters = repository.findAll();
+        return voters;
     }
 
 
