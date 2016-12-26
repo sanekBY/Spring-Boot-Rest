@@ -1,12 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Voter Page</title>
-</head>
-<body>
-    <form name="Test">
-        <input type="text" size="40">
-    </form>
-</body>
-</html>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel">
+                <div class="panel-heading">Список голосований</div>
+                <div class="panel-body" >
+                   <!--<div data-ng-init = "findVoter()">-->
+                    <div class="panel panel-default">
+                        {{user.id}}
+                        {{user.title}}
+                        {{user.votes}}
+                    </div>
+                    <!--</div>-->
+                </div>
+            </div>
+        </div>
+    </div>

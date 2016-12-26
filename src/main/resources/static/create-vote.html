@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Vote creation</title>
-</head>
-<body>
+
 <h1>Create vote</h1>
 <form id = "form">
     <h2>Theme</h2>
@@ -13,21 +7,4 @@
     <textarea></textarea>
     <h2>Vars</h2>
     <input type="button" value="Добавить строку" onClick="CreateForm()">
-
-    <script language="javascript">
-        function CreateForm(){
-            var createtime = new Date().getTime();
-            var num = 1;
-            var Form = document.getElementById('form')
-            var Inner = document.createElement('input');
-            Inner.type = 'text';
-            Inner.value = '';
-            Inner.name = num + 1;
-            Form.appendChild(Inner);
-        }
-    </script>
-
 </form>
-
-</body>
-</html>

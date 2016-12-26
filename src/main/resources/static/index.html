@@ -2,18 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>My AngularJS App</title>
+    <meta name="description" content="">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <base href="/" />
 </head>
-<body>
-    <form>
-        <div class="panel">
-            HELO MAAAAAAAAAAAAAAAAAn
+<body data-ng-app="ngdemoApp">
+
+        <div data-ng-view>
+
         </div>
-    </form>
 
-    <div class="btn-link"><a href="create-vote.html">Create vote</a></div>
-    <div class="btn-link"><a href="voter-list.html">Список голосований</a></div>
+        <!--<div class="btn-link"><a href="create-vote.html">Create vote</a></div>-->
+    <!--<div class="btn-link"><a href="voter-list.html">Список голосований</a></div>-->
 
+        <script src="js/angular.js"></script>
+        <script src="js/angular-resource.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/service/services.js"></script>
+        <script src="js/controller/controllers.js"></script>
 </body>
 </html>

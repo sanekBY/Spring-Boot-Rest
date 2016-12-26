@@ -31,19 +31,14 @@ public class VoterController {
 //        return voterService.save(voter);
 //    }
 
-    @RequestMapping("/voter")
-    public void getVoter (@RequestParam(value = "id", defaultValue = "1") Integer id) {
-        System.out.println(voterService.getVoter(1));
+    @RequestMapping(value = "/api/voter/{id}", method = {RequestMethod.GET})
+    public Voter getVoter(@PathVariable("id") Integer id) {
+        System.out.println(voterService.getVoter(id).getTitle());
+        return voterService.getVoter(id);
     }
 
 
-    @RequestMapping("/greeting")
-    public Greeting greeting(@RequestParam(value="name", defaultValue="World") String name) {
-        return new Greeting(1,
-                String.format(name));
-    }
-
-    @RequestMapping("/api/voter-list")
+    @RequestMapping(value = "/api/voter-list" ,  method = {RequestMethod.GET})
     public List<Voter> getListOfVoters() {
         List<Voter> list = new ArrayList<>();
         list = voterService.findAll();
