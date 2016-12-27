@@ -1,9 +1,8 @@
 package com.sashqua.myvoter.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.springframework.context.annotation.Primary;
+
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.security.Timestamp;
@@ -18,6 +17,8 @@ public class Voter {
 
     @Id
     @NotNull
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="seq_voter")
+    @SequenceGenerator(name="seq_voter", sequenceName="seq_voter", allocationSize=1)
     @Column(name = "id", nullable = false, updatable = false)
     private Integer id;
 

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.inject.Inject;
 import javax.validation.Valid;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -26,10 +27,11 @@ public class VoterController {
         this.voterService = voterService;
     }
 //
-//    @RequestMapping(value = "/createVoter", method = RequestMethod.POST)
-//    public Voter createVote (@RequestBody @Valid final Voter voter) {
-//        return voterService.save(voter);
-//    }
+    @RequestMapping(value = "/api/voter-list", method = RequestMethod.POST)
+    public Voter createVote (@RequestBody @Valid final Voter voter) {
+        voter.setStart_date(new Date());
+        return voterService.save(voter);
+    }
 
     @RequestMapping(value = "/api/voter/{id}", method = {RequestMethod.GET})
     public Voter getVoter(@PathVariable("id") Integer id) {

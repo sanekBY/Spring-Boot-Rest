@@ -1,10 +1,25 @@
+<div class="container">
+    <h1>Create a new user</h1>
 
-<h1>Create vote</h1>
-<form id = "form">
-    <h2>Theme</h2>
-    <input type="text">
-    <h2>About</h2>
-    <textarea></textarea>
-    <h2>Vars</h2>
-    <input type="button" value="Добавить строку" onClick="CreateForm()">
-</form>
+    <form novalidate="novalidate" class="form-horizontal">
+        <div class="control-group">
+            <label class="control-label" for="title">Title:</label>
+            <div class="controls">
+                <input type="text" id="title" data-ng-model="voter.title" placeholder="First name"/>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="text">Text:</label>
+            <div class="controls">
+                <input type="text" id="text" data-ng-model="voter.text" placeholder="First name"/>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="controls">
+                <a data-ng-click="createNewVoter()" class="btn btn-small btn-primary">create new voter</a>
+            </div>
+        </div>
+    </form>
+</div>
