@@ -1,24 +1,22 @@
 <div class="container">
-    <h1>Create a new user</h1>
+    <h1>Create a new voter</h1>
 
-    <form novalidate="novalidate" class="form-horizontal">
-        <div class="control-group">
-            <label class="control-label" for="title">Title:</label>
-            <div class="controls">
-                <input type="text" id="title" data-ng-model="voter.title" placeholder="First name"/>
+    <form class="form-horizontal">
+        <div class=control-group"">
+            <label class="control-label" for="question">Вопрос:</label>
+            <div class="text-area">
+                <textarea id="question" data-ng-model="voter.question" > </textarea>
+            </div>
+
+            <label  class="control-label" for="answers">Ответы:</label>
+            <div class="input-lg">
+                <input type="text" id="answers" data-ng-model="voter.answers.answer"/>
             </div>
         </div>
 
-        <div class="control-group">
-            <label class="control-label" for="text">Text:</label>
-            <div class="controls">
-                <input type="text" id="text" data-ng-model="voter.text" placeholder="First name"/>
-            </div>
-        </div>
-
-        <div class="control-group">
-            <div class="controls">
-                <a data-ng-click="createNewVoter()" class="btn btn-small btn-primary">create new voter</a>
+        <div class="control-label">
+            <div class="form-select-button">
+                <a data-ng-click="createNewVoter()" class="btn btn-success">Создать глосование</a>
             </div>
         </div>
     </form>

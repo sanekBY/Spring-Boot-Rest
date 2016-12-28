@@ -12,4 +12,5 @@ public interface VoterService {
     Voter save(Voter voter);
     Voter getVoter(Integer id);
     List<Voter> findAll();
+    void addVote(Integer id);
 }

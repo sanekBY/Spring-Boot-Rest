@@ -30,15 +30,19 @@ app.controller('VoterDetailCtrl', ['$scope', '$routeParams', 'VoterFactory', '$l
 
         // callback for ng-click 'updateVoter':
         $scope.updateVoter = function () {
-            VoterFactory.update($scope.voter);
-            $location.path('/voter-list');
-        };
+            var radios = document.getElementsByName("radioBut");
+            var x;
+            for (var i = 0,  length = radios.length; i < length; i++) {
+                if (radios[i].checked) {
+                    x = parseInt(radios[i].value, 10);
+                    // x = 1;
+                    break;
+                }
+            }
+            VoterFactory.update({id : x});
+            $location.path('/');
 
-        // callback for ng-click 'cancel':
-        $scope.cancel = function () {
-            $location.path('/voter-list');
         };
-
         $scope.voter = VoterFactory.show({id: $routeParams.id});
     }]);
 
@@ -47,8 +51,9 @@ app.controller('VoterCreationCtrl', ['$scope', 'VotersFactory', '$location',
 
         // callback for ng-click 'createNewUser':
         $scope.createNewVoter = function () {
-            var voteer = {"id" : 1, "title": $scope.voter.title,"text":$scope.voter.text,"votes":0,"start_date":null,"close_date":null,"isclosed":false};
+            var voteer = {"id" : 1, "question": $scope.voter.question, "start_date":null,"close_date":null,"isclosed":false};
             VotersFactory.create(voteer);
             $location.path('/');
         }
     }]);
+

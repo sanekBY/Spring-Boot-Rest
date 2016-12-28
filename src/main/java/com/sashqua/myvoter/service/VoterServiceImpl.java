@@ -52,5 +52,11 @@ public class VoterServiceImpl implements VoterService {
         return voters;
     }
 
+    @Override
+    @Transactional
+    public void addVote(Integer id) {
+        repository.addVote(id);
+    }
+
 
 }

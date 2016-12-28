@@ -1,5 +1,6 @@
 package com.sashqua.myvoter.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.springframework.context.annotation.Primary;
 
 import javax.persistence.*;
@@ -7,6 +8,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.security.Timestamp;
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Created by sashqua on 22.12.16.
@@ -22,14 +25,8 @@ public class Voter {
     @Column(name = "id", nullable = false, updatable = false)
     private Integer id;
 
-    @Column(name = "title")
-    private String title;
-
-    @Column(name = "text")
-    private String text;
-
-    @Column(name = "votes")
-    private Integer votes;
+    @Column(name = "question")
+    private String question;
 
     @Column(name = "start_date")
     private Date start_date;
@@ -39,6 +36,10 @@ public class Voter {
 
     @Column(name = "isclosed")
     private Boolean isclosed;
+
+    @JsonManagedReference
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "voterId")
+    private Set<Answers> answerses;
 
 
     public Voter() {
@@ -52,30 +53,6 @@ public class Voter {
         this.id = id;
     }
 
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public Integer getVotes() {
-        return votes;
-    }
-
-    public void setVotes(Integer votes) {
-        this.votes = votes;
-    }
 
     public Date getStart_date() {
         return start_date;
@@ -99,5 +76,21 @@ public class Voter {
 
     public void setClose_date(Date close_date) {
         this.close_date = close_date;
+    }
+
+    public String getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+
+    public Set<Answers> getAnswerses() {
+        return answerses;
+    }
+
+    public void setAnswerses(Set<Answers> answerses) {
+        this.answerses = answerses;
     }
 }

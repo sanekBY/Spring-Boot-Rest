@@ -1,31 +1,19 @@
-    <div>
-        <ul class="menu">
-            <li><a href="create-vote">Create new</a></li>
-        </ul>
-        <div class="panel panel-default">
-            <!-- Default panel contents -->
-            <div class="panel-heading"><span class="lead">List of Users </span></div>
-            <div class="tablecontainer">
-                <table class="table table-hover">
+
+<div class="panel panel-default">
+        <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>№</th>
-                    <th>Название</th>
-                    <th>Количество голосов</th>
+                    <th>Голосования</th>
                     <th>Статус</th>
                 </tr>
             </thead>
             <tbody >
                 <tr data-ng-repeat="item in voters" >
-                    <td>{{item.id}}</td>
-                    <!--<button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Reset Form</button>-->
-                    <td><a href="voter/{{item.id}}">{{item.title}}</a></td>
-
-                    <td>{{item.votes}}</td>
+                    <td class="col-sm-8 btn-link" ><a href="voter/{{item.id}}">{{item.question}}</a></td>
+                    <td class="col-sm-3">{{item.isclosed}}</td>
                 </tr>
 
             </tbody>
         </table>
-            </div>
-        </div>
-    </div>
+</div>
+
