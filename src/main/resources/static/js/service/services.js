@@ -13,8 +13,13 @@ services.factory('VotersFactory', function ($resource) {
 services.factory('VoterFactory', function ($resource) {
     return $resource('/api/voter/:id', {}, {
         show: { method: 'GET'},
-        update: { method: 'PUT', params: {id:'@id'} },
-        delete: { method: 'DELETE', params: {id: '@id'} }
+        update: { method: 'PUT', params: {id:'@id'} }
+    })
+});
+
+services.factory('VoterFactorySec', function ($resource) {
+    return $resource('/api/voter/:id', {}, {
+        update: { method: 'PUT', params: {id:'@id'} }
     })
 });
 

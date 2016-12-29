@@ -1,5 +1,6 @@
 package com.sashqua.myvoter.controllers;
 
+import com.sashqua.myvoter.entity.Answers;
 import com.sashqua.myvoter.entity.Voter;
 import com.sashqua.myvoter.service.VoterService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,9 @@ public class VoterController {
     @RequestMapping(value = "/api/voter-list", method = RequestMethod.POST)
     public Voter createVote (@RequestBody @Valid final Voter voter) {
         voter.setStart_date(new Date());
+        for (Answers a : voter.getAnswerses()){
+            a.setVoterId(voter);
+        }
         return voterService.save(voter);
     }
 
@@ -46,21 +50,5 @@ public class VoterController {
     public List<Voter> getListOfVoters() {
         return voterService.findAll();
     }
-//
-//    @RequestMapping(value = "/api/answers-list" ,  method = {RequestMethod.GET})
-//    public List<Answers> getListOfAnswers() {
-//        List<Answers> list = new ArrayList<>();
-//        list = voterService.findAll();
-//        return list;
-//    }
-
-
-//    @RequestMapping("/voter")
-//    public Voter getVoter (@RequestParam(value = "id",required = false,
-//            defaultValue = "1") Integer id) {
-//        return voterService.getVoter(id);
-//    }
-
-
 
 }

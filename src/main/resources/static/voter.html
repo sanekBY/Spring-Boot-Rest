@@ -4,7 +4,6 @@
             <div class="panel">
                 <div class="panel-heading title">{{voter.question}}</div>
                 <div class="panel-body" >
-                   <!--<div data-ng-init = "findVoter()">-->
                     <div class="panel panel-info ">
                         <table class="table table-hover table-bordered">
                             <tbody >
@@ -12,8 +11,6 @@
                                 <td>
                                     <input type="radio" name="radioBut"  value="{{item.id}}"> {{item.answer}}
                                 </td>
-                                <!--<button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Reset Form</button>-->
-
                                 <td class="">{{item.votes}}</td>
                             </tr>
                             </tbody>
@@ -23,6 +20,10 @@
                 <div class="button">
                     <a data-ng-click="updateVoter()" class="btn btn-small btn-primary">Ответить</a>
                 </div>
+                <div class="button">
+                    <a data-ng-click="closeVoter()" class="btn btn-small btn-primary">Закрыть голосование</a>
+                </div>
+                Ссылка для голосования: http://localhost:8080/#!/voter/{{voter.id}}
             </div>
             </div>
     </div>

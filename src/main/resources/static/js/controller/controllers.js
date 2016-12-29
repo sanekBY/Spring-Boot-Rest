@@ -22,13 +22,12 @@ app.controller('VoterListCtrl', ['$scope', 'VotersFactory', 'VoterFactory', '$lo
         };
 
         $scope.voters = VotersFactory.query();
-        // $scope.voters = [{"id":1,"title":"Пер","text":"Comment","votes":5,"start_date":1451595600000,"close_date":1454274000000,"isclosed":false},{"id":2,"title":"Втор","text":"Comment 2","votes":15,"start_date":1451682000000,"close_date":1454619600000,"isclosed":false}];
+
     }]);
 
 app.controller('VoterDetailCtrl', ['$scope', '$routeParams', 'VoterFactory', '$location',
-    function ($scope, $routeParams, VoterFactory, $location) {
+    function ($scope, $routeParams, VoterFactory,  $location) {
 
-        // callback for ng-click 'updateVoter':
         $scope.updateVoter = function () {
             var radios = document.getElementsByName("radioBut");
             var x;
@@ -43,17 +42,37 @@ app.controller('VoterDetailCtrl', ['$scope', '$routeParams', 'VoterFactory', '$l
             $location.path('/');
 
         };
+
+        // $scope.closeVoter = function () {
+        //     VoterFactorySec.update({id : $scope.voter.id})
+        //     $location.path('/');
+        // };
         $scope.voter = VoterFactory.show({id: $routeParams.id});
     }]);
 
 app.controller('VoterCreationCtrl', ['$scope', 'VotersFactory', '$location',
     function ($scope, VotersFactory, $location) {
 
-        // callback for ng-click 'createNewUser':
+        $scope.answers = [{"id":null,"answer":null, "voter_id": 1, "votes":1}];
+
+
+        $scope.addAnswer = function(){
+            $scope.answers.push({"id":null,"answer":null, "voter_id": 1, "votes":1})
+        };
+
+        $scope.removeAnswer = function() {
+            var lastItem = $scope.answers.length-1;
+            $scope.answers.splice(lastItem);
+        };
+
+
         $scope.createNewVoter = function () {
-            var voteer = {"id" : 1, "question": $scope.voter.question, "start_date":null,"close_date":null,"isclosed":false};
+
+            var voteer = {"id": 1, "question":$scope.voter.question,"start_date":null,"close_date":null,"isclosed":false,"answerses":$scope.answers};
+
             VotersFactory.create(voteer);
             $location.path('/');
+            alert('Голосование успешно создано');
         }
     }]);
 

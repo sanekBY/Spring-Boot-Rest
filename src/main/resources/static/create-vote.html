@@ -9,12 +9,20 @@
             </div>
 
             <label  class="control-label" for="answers">Ответы:</label>
-            <div class="input-lg">
-                <input type="text" id="answers" data-ng-model="voter.answers.answer"/>
-            </div>
-        </div>
 
-        <div class="control-label">
+            <fieldset  data-ng-repeat="item in answers">
+                <div id = "answerses" class="input-lg" >
+                    <input type="text" data-ng-model="item.answer"/>
+                    <button class="remove" data-ng-show="$last" data-ng-click="removeAnswer()">-</button>
+                </div>
+            </fieldset>
+
+            <div class="form-select-button">
+                <a data-ng-click="addAnswer()" class="btn btn-success">Добавить вариант ответа</a>
+            </div>
+
+        </div>
+        <div class="control-group">
             <div class="form-select-button">
                 <a data-ng-click="createNewVoter()" class="btn btn-success">Создать глосование</a>
             </div>

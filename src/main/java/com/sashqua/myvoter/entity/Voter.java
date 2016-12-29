@@ -19,7 +19,6 @@ import java.util.Set;
 public class Voter {
 
     @Id
-    @NotNull
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="seq_voter")
     @SequenceGenerator(name="seq_voter", sequenceName="seq_voter", allocationSize=1)
     @Column(name = "id", nullable = false, updatable = false)
@@ -37,8 +36,7 @@ public class Voter {
     @Column(name = "isclosed")
     private Boolean isclosed;
 
-    @JsonManagedReference
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "voterId")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "voterId", cascade = CascadeType.ALL)
     private Set<Answers> answerses;
 
 

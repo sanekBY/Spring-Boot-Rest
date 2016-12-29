@@ -33,7 +33,6 @@ public class VoterServiceImpl implements VoterService {
     @Override
     @Transactional
     public Voter save(@NotNull @Valid final Voter voter) {
-        Voter existing = repository.findOne(voter.getId());
         return repository.save(voter);
     }
 
@@ -56,6 +55,12 @@ public class VoterServiceImpl implements VoterService {
     @Transactional
     public void addVote(Integer id) {
         repository.addVote(id);
+    }
+
+    @Override
+    @Transactional
+    public void closeVoter(Integer id) {
+        repository.closeVoter(id);
     }
 
 

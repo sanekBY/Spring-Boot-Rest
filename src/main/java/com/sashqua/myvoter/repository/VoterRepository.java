@@ -10,9 +10,13 @@ import org.springframework.data.repository.query.Param;
  * Created by sashqua on 22.12.16.
  */
 public interface VoterRepository extends JpaRepository<Voter, Integer> {
-//    @Query("select u from User u where u.age = ?#{[0]}")
+
     @Modifying
-    @Query("UPDATE Answers a SET a.votes = a.votes+100 where a.id = ?1")
-//    @Query("select v FROM Answers v where v.id = ?1")
+    @Query("UPDATE Answers a SET a.votes = a.votes+1 where a.id = ?1")
     void addVote(Integer id);
+
+    @Modifying
+    @Query("UPDATE Voter v SET v.isclosed = 'true' where v.id = ?1")
+    void closeVoter(Integer id);
+
 }

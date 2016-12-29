@@ -14,7 +14,6 @@ import java.util.Date;
 public class Answers {
 
     @Id
-    @NotNull
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="seq_answers")
     @SequenceGenerator(name="seq_answers", sequenceName="seq_answers", allocationSize=1)
     @Column(name = "id", nullable = false, updatable = false)
