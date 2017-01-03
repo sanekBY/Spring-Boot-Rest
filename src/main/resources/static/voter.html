@@ -1,5 +1,4 @@
-
-    <div class="row">
+<div class="row" xmlns:h="http://www.w3.org/1999/html">
         <div class="col-md-12">
             <div class="panel">
                 <div class="panel-heading title">{{voter.question}}</div>
@@ -17,15 +16,15 @@
                         </table>
                     </div>
                 </div>
-                <div data-ng-hide="voter.isclosed">
-                    <div  class="button">
-                        <a data-ng-click="updateVoter()" class="btn btn-small btn-primary">Ответить</a>
-                    </div>
-                    <div class="button">
+                <div data-ng-hide="voter.isclosed" class="button">
+                    <a data-ng-click="updateVoter()" class="btn btn-small btn-success">Ответить</a>
+                    <div class="button pull-right">
                         <a data-ng-click="closeVoter()" class="btn btn-small btn-primary">Закрыть голосование</a>
                     </div>
                 </div>
-                Ссылка для голосования: http://localhost:8080/#!/voter/{{voter.id}}
+                <label for="inputtext" >Ссылка для голосования:</label>
+                <input id="inputtext" value="http://localhost:8080/#!/voter/{{voter.id}}" readonly class="input-lg" style="width: 400px;">
             </div>
-            </div>
-    </div>
+        </div>
+
+</div>
