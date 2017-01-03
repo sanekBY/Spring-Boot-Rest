@@ -17,11 +17,13 @@
                         </table>
                     </div>
                 </div>
-                <div class="button">
-                    <a data-ng-click="updateVoter()" class="btn btn-small btn-primary">Ответить</a>
-                </div>
-                <div class="button">
-                    <a data-ng-click="closeVoter()" class="btn btn-small btn-primary">Закрыть голосование</a>
+                <div data-ng-hide="voter.isclosed">
+                    <div  class="button">
+                        <a data-ng-click="updateVoter()" class="btn btn-small btn-primary">Ответить</a>
+                    </div>
+                    <div class="button">
+                        <a data-ng-click="closeVoter()" class="btn btn-small btn-primary">Закрыть голосование</a>
+                    </div>
                 </div>
                 Ссылка для голосования: http://localhost:8080/#!/voter/{{voter.id}}
             </div>
