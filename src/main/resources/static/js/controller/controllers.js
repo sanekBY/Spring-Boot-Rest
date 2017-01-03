@@ -21,8 +21,22 @@ app.controller('VoterListCtrl', ['$scope', 'VotersFactory', 'VoterFactory', '$lo
             $location.path('/voter/' + voterId);
         };
 
-        $scope.voters = VotersFactory.query();
+        $scope.setStatus = function(status) {
+            if (status) {
+                $scope.myDynamicClass = 'some-css-class';
+                return "Закрыто";
+            } else {
+                $scope.myDynamicClass = 'background-color:gray;';
+                return "Открыто";
+            }
+        };
 
+        $scope.getStatusColor = function (status) {
+            if (status) return "red";
+            else  return "green";
+        };
+
+        $scope.voters = VotersFactory.query();
     }]);
 
 app.controller('VoterDetailCtrl', ['$scope', '$routeParams', 'VoterFactory', '$location',
