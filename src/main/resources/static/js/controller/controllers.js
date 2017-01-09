@@ -67,11 +67,11 @@ app.controller('VoterDetailCtrl', ['$scope', '$routeParams', 'VoterFactory', '$l
 app.controller('VoterCreationCtrl', ['$scope', 'VotersFactory', '$location',
     function ($scope, VotersFactory, $location) {
 
-        $scope.answers = [{"id":null,"answer":null, "voter_id": 1, "votes":1}];
+        $scope.answers = [{"id":null,"answer":null, "voter_id": 1, "votes":0}];
 
 
         $scope.addAnswer = function(){
-            $scope.answers.push({"id":null,"answer":null, "voter_id": 1, "votes":1})
+            $scope.answers.push({"id":null,"answer":null, "voter_id": 1, "votes":0})
         };
 
         $scope.removeAnswer = function() {

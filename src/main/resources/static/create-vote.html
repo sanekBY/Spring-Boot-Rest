@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>Create a new voter</h1>
+    <h1>Создать новое голосование</h1>
 
     <form class="form-horizontal">
         <div class=control-group"">
@@ -8,23 +8,20 @@
                 <textarea id="question" data-ng-model="voter.question" > </textarea>
             </div>
 
-            <label  class="control-label" for="answers">Ответы:</label>
+            <label  class="control-label" for="answerses">Ответы:</label>
 
-            <fieldset  data-ng-repeat="item in answers">
-                <div id = "answerses" class="input-lg" >
+            <fieldset  id = "answerses"  data-ng-repeat="item in answers">
+                <div class="input-lg" >
                     <input type="text" data-ng-model="item.answer"/>
                     <button class="remove" data-ng-show="$last" data-ng-click="removeAnswer()">-</button>
+                    <button class="add" data-ng-show="$last" data-ng-click="addAnswer()">+</button>
                 </div>
             </fieldset>
-
-            <div class="form-select-button">
-                <a data-ng-click="addAnswer()" class="btn btn-success">Добавить вариант ответа</a>
-            </div>
-
         </div>
+
         <div class="control-group">
             <div class="form-select-button">
-                <a data-ng-click="createNewVoter()" class="btn btn-success">Создать глосование</a>
+                <a data-ng-click="createNewVoter()" class="btn btn-success">Готово</a>
             </div>
         </div>
     </form>
